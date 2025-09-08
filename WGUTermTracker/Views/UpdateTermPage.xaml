@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:models="clr-namespace:WGUTermTracker.Models;assembly=WGUTermTracker"  
+             x:Class="WGUTermTracker.Views.UpdateTermPage"  
+             x:DataType="models:Term"
+             Title="Update Term">  
+
+    <VerticalStackLayout  
+        Padding="16"  
+        Spacing="16">  
+
+        <!-- Page Header -->  
+        <Label  
+            Text="Update Term"  
+            Style="{StaticResource PageHeaderStyle}" />
+
+        <Grid
+            ColumnDefinitions="Auto, *"
+            RowDefinitions="Auto, Auto, Auto"
+            Padding="10">
+
+            <!-- Title -->
+            <Label  
+                Text="Term Title:"  
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                Style="{StaticResource PropertyLabelStyle}" />
+            <Entry  
+                x:Name="enteredTermTitle"  
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{Binding Title, Mode=TwoWay}"  
+                Placeholder="Enter term title" />
+            <!-- Start Date -->
+            <Label  
+                Text="Start Date:" 
+                Grid.Row="1"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                Style="{StaticResource PropertyLabelStyle}" />
+            <DatePicker  
+                x:Name="startDatePicker"
+                Grid.Row="1"
+                Grid.Column="1"
+                Date="{Binding StartDate, Mode=TwoWay}" />
+            <!-- End Date -->
+            <Label  
+                Text="End Date:"
+                Grid.Row="2"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                Style="{StaticResource PropertyLabelStyle}" />
+            <DatePicker  
+                x:Name="endDatePicker" 
+                Grid.Row="2"
+                Grid.Column="1"
+                Date="{Binding EndDate, Mode=TwoWay}" />
+        </Grid>
+
+        <HorizontalStackLayout  
+            HorizontalOptions="End"  
+            Spacing="12">  
+
+            <!-- Add Button -->  
+            <Button  
+                Text="Update"  
+                Clicked="OnUpdateTermClicked"   
+                Style="{StaticResource PageUpdateButtonStyle}"/>  
+
+            <!-- Cancel Button -->  
+            <Button  
+                Text="Cancel"  
+                Clicked="OnCancelClicked"  
+                Style="{StaticResource PageCancelButtonStyle}" />  
+        </HorizontalStackLayout>  
+    </VerticalStackLayout>
+</ContentPage>

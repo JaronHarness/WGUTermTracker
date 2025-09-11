@@ -3,7 +3,7 @@ using WGUTermTracker.Models.Enums;
 
 namespace WGUTermTracker.Models;
 
-public class Course
+public class Course : TrackableItem
 {
     // Course Information
     [PrimaryKey, AutoIncrement]
@@ -23,4 +23,6 @@ public class Course
     // Foreign Keys
     public int TermId { get; set; }
 
+    public override string GetSummary() =>
+        $"Course: {Title} [{Status}] ({StartDate:yyyy-MM-dd} → {EndDate:yyyy-MM-dd})";
 }

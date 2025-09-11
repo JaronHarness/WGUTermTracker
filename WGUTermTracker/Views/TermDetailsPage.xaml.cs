@@ -5,21 +5,21 @@ namespace WGUTermTracker.Views;
 
 public partial class TermDetailsPage : ContentPage
 {
-	private readonly SQLiteDatabaseService _sqliteDatabaseService;
-	private Term _term;
+    private readonly SQLiteDatabaseService _sqliteDatabaseService;
+    private Term _term;
     private Course _selectedCourse;
     private List<Course> _allCourses;
 
     public TermDetailsPage(Term term, SQLiteDatabaseService sqliteDatabaseService)
-	{
-		InitializeComponent();
-		_sqliteDatabaseService = sqliteDatabaseService;
-		_term = term;
+    {
+        InitializeComponent();
+        _sqliteDatabaseService = sqliteDatabaseService;
+        _term = term;
 
         // Display Term Details
         termTitleLabel.Text = $"{_term.Title}";
         termStartDateLabel.Text = $"Start Date: {_term.StartDate.ToString("d")}";
-        termEndDateLabel.Text = $"End Date: {_term.EndDate.ToString("d")}";       
+        termEndDateLabel.Text = $"End Date: {_term.EndDate.ToString("d")}";
     }
 
     protected override async void OnAppearing()
@@ -28,6 +28,7 @@ public partial class TermDetailsPage : ContentPage
         await LoadAllCoursesAsync();
         _selectedCourse = null;
     }
+
     private async Task LoadAllCoursesAsync()
     {
         // Get Courses
@@ -39,6 +40,7 @@ public partial class TermDetailsPage : ContentPage
         // Bind Courses to CollectionView
         coursesCollectionView.ItemsSource = termCourses;
     }
+
     private void OnCourseSelected(object sender, SelectionChangedEventArgs e)
     {
         var selectedCourse = e.CurrentSelection.FirstOrDefault() as Course;
@@ -52,10 +54,12 @@ public partial class TermDetailsPage : ContentPage
             _selectedCourse = null;
         }
     }
+
     private async void OnAddCourseButtonClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new AddCoursePage(_term, _sqliteDatabaseService));
     }
+
     private async void OnViewCourseButtonClicked(object sender, EventArgs e)
     {
         if (_selectedCourse != null)
@@ -68,17 +72,19 @@ public partial class TermDetailsPage : ContentPage
             await DisplayAlert("Error", "Please select a course to view details.", "OK");
         }
     }
+
     private async void OnUpdateCourseButtonClicked(object sender, EventArgs e)
     {
         if (_selectedCourse != null)
         {
-            await Navigation.PushAsync(new UpdateCoursePage(_term,_selectedCourse, _sqliteDatabaseService));
+            await Navigation.PushAsync(new UpdateCoursePage(_term, _selectedCourse, _sqliteDatabaseService));
         }
         else
         {
             await DisplayAlert("Error", "Please select a course to update.", "OK");
         }
     }
+
     private async void OnDeleteCourseButtonClicked(object sender, EventArgs e)
     {
         if (_selectedCourse != null)
@@ -98,6 +104,12 @@ public partial class TermDetailsPage : ContentPage
         await LoadAllCoursesAsync();
         _selectedCourse = null;
     }
+
+    private async void OnCourseStartDateReportButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new CourseStartDateReportPage(_sqliteDatabaseService));
+    }
+
     private async void OnCancelButtonClicked(object sender, EventArgs e)
     {
         await Navigation.PopAsync();

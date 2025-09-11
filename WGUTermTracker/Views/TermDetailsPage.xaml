@@ -76,6 +76,17 @@
                         Style="{StaticResource PageDeleteButtonStyle}"/>
                 </HorizontalStackLayout>
 
+                <!-- Course Start Date Report Button -->
+                <HorizontalStackLayout 
+                    HorizontalOptions="Center" 
+                    Spacing="20">
+                    
+                    <Button 
+                        Text="Start Date Report"
+                        Clicked="OnCourseStartDateReportButtonClicked"
+                        Style="{StaticResource PageViewButtonStyle}" />
+                </HorizontalStackLayout>
+
                 <!-- Courses List -->
                 <CollectionView
                     x:Name="coursesCollectionView"

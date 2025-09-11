@@ -66,6 +66,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.Cours
 build_metadata.AdditionalFiles.TargetPath = Views\CourseDetailsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CourseDetailsPage.xaml
 
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/CourseStartDateReportPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.CourseStartDateReportPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CourseStartDateReportPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CourseStartDateReportPage.xaml
+
 [C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/TermDetailsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.TermDetailsPage.xaml

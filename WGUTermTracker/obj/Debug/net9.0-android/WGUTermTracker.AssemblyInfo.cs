@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WGUTermTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+40a9110ae755b106f8e863dce0d4ee909191e1f8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+f5e6c2df4ab46d86305e7893677ec0912d66a528")]
 [assembly: System.Reflection.AssemblyProductAttribute("WGUTermTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WGUTermTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

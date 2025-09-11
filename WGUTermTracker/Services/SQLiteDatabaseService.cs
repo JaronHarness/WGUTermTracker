@@ -214,15 +214,15 @@ public class SQLiteDatabaseService
 
         var course1 = new Course
         {
-            Title = "C968: Mobile App Dev - C#",
+            Title = "A101: Mobile App Dev - C#",
             Status = CourseStatus.Active,
-            StartDate = new DateTime(2025, 4, 01),
-            EndDate = new DateTime(2025, 9, 30),
+            StartDate = new DateTime(2025, 9, 01),
+            EndDate = new DateTime(2025, 10, 31),
             Notes = "Learn mobile development using C#.",
             EnableNotifications = true,
-            InstructorName = "Anika Patel",
+            InstructorName = "John Doe",
             InstructorPhone = "555-123-4567",
-            InstructorEmail = "anika.patel@strimeuniversity.edu",
+            InstructorEmail = "John.Doe@TheUniversity.edu",
             TermId = term1Id
         };
         await _connection.InsertAsync(course1);
@@ -243,8 +243,8 @@ public class SQLiteDatabaseService
         {
             Title = "Performance Assessment 1",
             Type = AssessmentType.Performance,
-            StartDate = new DateTime(2025, 4, 01),
-            EndDate = new DateTime(2025, 6, 30),
+            StartDate = new DateTime(2025, 9, 01),
+            EndDate = new DateTime(2025, 9, 15),
             EnableNotifications = true,
             CourseId = course1Id
         };
@@ -254,7 +254,7 @@ public class SQLiteDatabaseService
         {
             Title = "Objective Assessment 1",
             Type = AssessmentType.Objective,
-            StartDate = new DateTime(2025, 7, 01),
+            StartDate = new DateTime(2025, 9, 15),
             EndDate = new DateTime(2025, 9, 30),
             EnableNotifications = false,
             CourseId = course1Id

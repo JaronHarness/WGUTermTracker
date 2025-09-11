@@ -263,7 +263,6 @@ C:\Projects\C971\WGUTermTrackerApp\WGUTermTracker\bin\Debug\net9.0-ios\iossimula
 C:\Projects\C971\WGUTermTrackerApp\WGUTermTracker\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
 C:\Projects\C971\WGUTermTrackerApp\WGUTermTracker\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.VisualStudio.DesignTools.TapContract.dll
 C:\Projects\C971\WGUTermTrackerApp\WGUTermTracker\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
-C:\Projects\C971\WGUTermTrackerApp\WGUTermTracker\obj\Debug\net9.0-ios\iossimulator-x64\build-signature\signature
 C:\Projects\C971\WGUTermTrackerApp\WGUTermTracker\obj\Debug\net9.0-ios\iossimulator-x64\WGUTermTracker.csproj.AssemblyReference.cache
 C:\Projects\C971\WGUTermTrackerApp\WGUTermTracker\obj\Debug\net9.0-ios\iossimulator-x64\mauiimage.inputs
 C:\Projects\C971\WGUTermTrackerApp\WGUTermTracker\obj\Debug\net9.0-ios\iossimulator-x64\mauifont.inputs

@@ -2,6 +2,7 @@ using WGUTermTracker.Models;
 using WGUTermTracker.Models.Enums;
 using WGUTermTracker.Services;
 using Plugin.LocalNotification;
+using System.Text.RegularExpressions; // For Email Validation
 
 namespace WGUTermTracker.Views;
 
@@ -9,15 +10,19 @@ public partial class AddCoursePage : ContentPage
 {
     private readonly SQLiteDatabaseService _sqliteDatabaseService;
     private Term _term;
+
+    // Industry-standard security feature - email validation
+    private static readonly Regex EmailRegex = new(
+        @"^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,24}$",
+        RegexOptions.Compiled | RegexOptions.CultureInvariant);
+
     public AddCoursePage(Term term, SQLiteDatabaseService sqliteDatabaseService)
     {
         InitializeComponent();
         _sqliteDatabaseService = sqliteDatabaseService;
         _term = term;
 
-        // Populates the Status Picker dropdown
         statusPicker.ItemsSource = Enum.GetValues(typeof(CourseStatus)).Cast<CourseStatus>().ToList();
-        // Sets Default Status value
         statusPicker.SelectedItem = CourseStatus.InActive;
         _sqliteDatabaseService = sqliteDatabaseService;
     }
@@ -29,7 +34,6 @@ public partial class AddCoursePage : ContentPage
         var terms = await _sqliteDatabaseService.GetAllTermsAsync();
         termPicker.ItemsSource = terms;
 
-        // Set the selected term to the one passed in
         if (_term != null)
         {
             var matchingTerm = terms.FirstOrDefault(t => t.Id == _term.Id);
@@ -42,24 +46,20 @@ public partial class AddCoursePage : ContentPage
     }
 
     private async void OnAddCourseClicked(object sender, EventArgs e)
-	{
-		await AddCourseAsync();
+    {
+        await AddCourseAsync();
     }
 
-	private async Task AddCourseAsync()
-	{
+    private async Task AddCourseAsync()
+    {
         // Title
-		string title = enteredCourseTitle.Text;	
-
+        string title = enteredCourseTitle.Text;
         if (IsInputStringNullOrEmptyValue(title))
         {
             await DisplayAlert("Error: ", "Please enter a Course title.", "OK");
             return;
         }
-        else
-        {
-            title = enteredCourseTitle.Text.Trim();
-        }
+        title = title.Trim();
 
         // Term
         if (termPicker.SelectedItem == null)
@@ -67,7 +67,6 @@ public partial class AddCoursePage : ContentPage
             await DisplayAlert("Error: ", "Please select a Term for the Course.", "OK");
             return;
         }
-
         int termId = ((Term)termPicker.SelectedItem).Id;
 
         // CourseStatus
@@ -75,19 +74,12 @@ public partial class AddCoursePage : ContentPage
 
         // Notes
         string notes = enteredCourseNotes.Text;
-        if (IsInputStringNullOrEmptyValue(notes))
-        {
-            notes = "";
-        }
-        else
-        {
-            notes = enteredCourseNotes.Text.Trim();
-        }
+        notes = IsInputStringNullOrEmptyValue(notes) ? "" : notes.Trim();
 
         // Notifications
         bool enableNotifications = notificationsCheckBox.IsChecked;
 
-        // Start and End Dates 
+        // Dates
         DateTime startDate = courseStartDatePicker.Date;
         DateTime endDate = courseEndDatePicker.Date;
         if (!IsStartDateBeforeEndDate(startDate, endDate))
@@ -103,10 +95,7 @@ public partial class AddCoursePage : ContentPage
             await DisplayAlert("Error: ", "Please enter the instuctor's name.", "OK");
             return;
         }
-        else
-        {
-            instructorName = enteredInstructorName.Text.Trim();
-        }
+        instructorName = instructorName.Trim();
 
         // Instructor Phone
         string instructorPhone = enteredInstructorPhone.Text;
@@ -115,24 +104,34 @@ public partial class AddCoursePage : ContentPage
             await DisplayAlert("Error: ", "Please enter the instructor's phone number.", "OK");
             return;
         }
-        else
-        {
-            instructorPhone = enteredInstructorPhone.Text.Trim();
-        }
+        instructorPhone = instructorPhone.Trim();
 
-        // Instructor Email
+        // Instructor Email (validation + sanitization)
         string instructorEmail = enteredInstructorEmail.Text;
         if (IsInputStringNullOrEmptyValue(instructorEmail))
         {
             await DisplayAlert("Error: ", "Please enter the instuctor's email address.", "OK");
             return;
         }
-        else
+        instructorEmail = instructorEmail.Trim();
+
+        if (!IsValidEmail(instructorEmail))
         {
-            instructorEmail = enteredInstructorEmail.Text.Trim();
+            await DisplayAlert("Error", "Please enter a valid instructor email (e.g., instructorname@campusname.edu).", "OK");
+            return;
         }
 
-        int courseId = await _sqliteDatabaseService.AddCourseAsync(title, status, startDate, endDate, notes, enableNotifications, instructorName, instructorPhone, instructorEmail, termId);
+        int courseId = await _sqliteDatabaseService.AddCourseAsync(
+            title,
+            status,
+            startDate,
+            endDate,
+            notes,
+            enableNotifications,
+            instructorName,
+            instructorPhone,
+            instructorEmail,
+            termId);
 
         if (enableNotifications)
         {
@@ -141,6 +140,14 @@ public partial class AddCoursePage : ContentPage
         }
 
         await Navigation.PopAsync();
+    }
+
+    // Email validation helper (Industry Standard Security feature)
+    private bool IsValidEmail(string email)
+    {
+        if (email.Length > 120) return false;
+        if (email.Contains('\n') || email.Contains('\r')) return false;
+        return EmailRegex.IsMatch(email);
     }
 
     private async Task StartDateNotification(int courseId, string title, DateTime startDate)
@@ -194,20 +201,11 @@ public partial class AddCoursePage : ContentPage
 
     private bool IsInputStringNullOrEmptyValue(string input)
     {
-        if (string.IsNullOrEmpty(input))
-        {
-            return true;
-        }
-
-        return false;
+        return string.IsNullOrEmpty(input);
     }
 
     private bool IsStartDateBeforeEndDate(DateTime start, DateTime end)
     {
-        if (start > end)
-        {
-            return false;
-        }
-        return true;
+        return start <= end;
     }
 }

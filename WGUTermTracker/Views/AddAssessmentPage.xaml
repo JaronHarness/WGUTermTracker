@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUTermTracker.Views.AddAssessmentPage"
+             Title="Add Assessment">
+    <VerticalStackLayout
+    Padding="16"
+    Spacing="16">
+
+        <!-- Page Header -->
+        <Label
+            Text="Add Assessment"
+            Style="{StaticResource PageHeaderStyle}" />
+
+        <Grid
+            ColumnDefinitions="Auto, *"
+            RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
+
+            <!-- Title -->
+            <Label
+                Text="Assessment Title:"
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{StaticResource PropertyLabelStyle}" />
+            <Entry
+                x:Name="enteredAssessmentTitle"
+                Grid.Row="0"
+                Grid.Column="1"
+                Placeholder="Enter assessment title" />
+            <!-- Course -->
+            <Label 
+                Text="Course: "
+                Grid.Row="1"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                Style="{StaticResource PropertyLabelStyle}"/>
+            <Picker 
+                x:Name="coursePicker"
+                Grid.Row="1"
+                Grid.Column="1"
+                Title="-- Select Course Here --"
+                ItemDisplayBinding="{Binding Title}" />
+            <!-- Type -->
+            <Label
+                Text="Assessment Type: "
+                Grid.Row="2"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                Style="{StaticResource PropertyLabelStyle}"/>
+            <Picker 
+                x:Name="assessmentTypePicker"
+                Grid.Row="2"
+                Grid.Column="1"
+                Title="Select Assessment Type"/>
+            <!-- Start Date -->
+            <Label
+                Text="Start Date:"
+                Grid.Row="3"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                Style="{StaticResource PropertyLabelStyle}"/>
+            <DatePicker
+                x:Name="assessmentStartDatePicker"
+                Grid.Row="3"
+                Grid.Column="1" />
+            <!-- End Date -->
+            <Label
+                Text="End Date:"
+                Grid.Row="4"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                Style="{StaticResource PropertyLabelStyle}"/>
+            <DatePicker
+                x:Name="assessmentEndDatePicker"
+                Grid.Row="4"
+                Grid.Column="1" />
+            <!-- Notifications-->
+            <Label
+                Text="Notifications:"
+                Grid.Row="5"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                Style="{StaticResource PropertyLabelStyle}"/>
+            <CheckBox 
+                x:Name="notificationsCheckBox"
+                Grid.Row="5"
+                Grid.Column="1"
+                IsChecked="false"
+                HorizontalOptions="Start" />
+        </Grid>
+        
+        <HorizontalStackLayout
+            HorizontalOptions="End"
+            Spacing="12">
+
+            <!-- Add Button -->
+            <Button
+                Text="Add"
+                Clicked="OnAddAssessmentClicked" 
+                Style="{StaticResource PageAddButtonStyle}"/>
+            <!-- Cancel Button -->
+            <Button
+                Text="Cancel"
+                Clicked="OnCancelClicked"
+                Style="{StaticResource PageCancelButtonStyle}" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

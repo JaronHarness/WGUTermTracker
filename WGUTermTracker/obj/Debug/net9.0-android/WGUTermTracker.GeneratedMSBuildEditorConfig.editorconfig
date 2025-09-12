@@ -1,0 +1,103 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net9.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WGUTermTracker
+build_property.ProjectDir = C:\Projects\C971\WGUTermTrackerApp\WGUTermTracker\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/AddAssessmentPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.AddAssessmentPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AddAssessmentPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AddAssessmentPage.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/AddCoursePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.AddCoursePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AddCoursePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AddCoursePage.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/AddTermPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.AddTermPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AddTermPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AddTermPage.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/AssessmentDetailsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.AssessmentDetailsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AssessmentDetailsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AssessmentDetailsPage.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/CourseDetailsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.CourseDetailsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CourseDetailsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CourseDetailsPage.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/CourseStartDateReportPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.CourseStartDateReportPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CourseStartDateReportPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CourseStartDateReportPage.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/TermDetailsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.TermDetailsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\TermDetailsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\TermDetailsPage.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/TermsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.TermsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\TermsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\TermsPage.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/UpdateAssessmentPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.UpdateAssessmentPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UpdateAssessmentPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UpdateAssessmentPage.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/UpdateCoursePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.UpdateCoursePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UpdateCoursePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UpdateCoursePage.xaml
+
+[C:/Projects/C971/WGUTermTrackerApp/WGUTermTracker/Views/UpdateTermPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WGUTermTracker.Views.UpdateTermPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UpdateTermPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UpdateTermPage.xaml

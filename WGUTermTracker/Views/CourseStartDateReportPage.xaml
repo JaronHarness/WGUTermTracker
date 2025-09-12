@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUTermTracker.Views.CourseStartDateReportPage"
+             Title="Course Start Date Report">
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="16">
+                <Label Text="Course Start Date Report"
+                       Style="{StaticResource PageHeaderStyle}" />
+
+                <!-- Date Range Pickers -->
+                <Grid ColumnDefinitions="Auto,*" 
+                      RowDefinitions="Auto,Auto" 
+                      Padding="4" 
+                      ColumnSpacing="8" 
+                      RowSpacing="8">
+                    
+                    <Label Text="From:"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           VerticalOptions="Center"
+                           Style="{StaticResource PropertyLabelStyle}" />
+                    <DatePicker x:Name="fromDatePicker"
+                                Grid.Row="0"
+                                Grid.Column="1" />
+
+                    <Label Text="To:"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           VerticalOptions="Center"
+                           Style="{StaticResource PropertyLabelStyle}" />
+                    <DatePicker x:Name="toDatePicker"
+                                Grid.Row="1"
+                                Grid.Column="1" />
+                </Grid>
+                
+                <!-- Run Report Button -->
+                <HorizontalStackLayout Spacing="12" HorizontalOptions="Start">
+                    <Button Text="Run Report"
+                            Clicked="OnRunReportClicked"
+                            Style="{StaticResource PageViewButtonStyle}" />
+                    <Button Text="Clear"
+                            Clicked="OnClearClicked"
+                            Style="{StaticResource PageDeleteButtonStyle}" />
+                </HorizontalStackLayout>
+
+                <Label x:Name="resultsSummaryLabel"
+                       FontAttributes="Bold"
+                       IsVisible="False"
+                       FontSize="14" />
+                <!-- Displayed Results in CollectionView -->
+                <CollectionView x:Name="resultsCollectionView"
+                                SelectionMode="None">
+                    <CollectionView.EmptyView>
+                        <VerticalStackLayout Padding="20,40" Spacing="8">
+                            <Label Text="No results to display."
+                                   HorizontalOptions="Center"
+                                   FontSize="14"
+                                   TextColor="Gray" />
+                        </VerticalStackLayout>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                                <Border Stroke="DodgerBlue"
+                                    StrokeThickness="1"
+                                    Padding="10"
+                                    Margin="0,6">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="{Binding Title}"
+                                           FontSize="16"
+                                           FontAttributes="Bold" />
+                                    <Label Text="{Binding TermTitle}"
+                                           FontSize="14"
+                                           TextColor="#0066A2" />
+                                    <Label Text="{Binding Status}"
+                                           FontSize="13" />
+                                    <HorizontalStackLayout Spacing="16">
+                                        <Label Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}"
+                                               FontSize="12" />
+                                        <Label Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}"
+                                               FontSize="12" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+        
+        <!-- Close Page Button -->
+        <Button Text="Close"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="20"
+                Clicked="OnCloseClicked"
+                Style="{StaticResource PageCancelButtonStyle}" />
+    </Grid>
+</ContentPage>

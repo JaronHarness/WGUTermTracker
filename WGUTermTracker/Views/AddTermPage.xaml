@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:services="clr-namespace:WGUTermTracker.Services;assembly=WGUTermTracker"
+             x:Class="WGUTermTracker.Views.AddTermPage" 
+             Title="Add Term">
+
+    <VerticalStackLayout
+        Padding="16"
+        Spacing="16">
+        
+        <!-- Page Header -->
+        <Label
+            Text="Add Term"
+            Style="{StaticResource PageHeaderStyle}" />
+
+        <Grid
+            Padding="10"
+            ColumnDefinitions="Auto,*"
+            RowDefinitions="Auto,Auto,Auto">
+            
+            <!-- Title -->
+            <Label
+                Text="Term Title:"
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{StaticResource PropertyLabelStyle}" />
+            <Entry
+                x:Name="enteredTermTitle"
+                Grid.Row="0"
+                Grid.Column="1"
+                Placeholder="Enter term title" />
+
+            <!-- Start Date -->
+            <Label
+                Text="Start Date:"
+                Grid.Row="1"
+                Grid.Column="0"
+                Style="{StaticResource PropertyLabelStyle}" />
+            <DatePicker
+                x:Name="startDatePicker"
+                Grid.Row="1"
+                Grid.Column="1" />
+
+            <!-- End Date -->
+            <Label
+                Text="End Date:"
+                Grid.Row="2"
+                Grid.Column="0"
+                Style="{StaticResource PropertyLabelStyle}" />
+            <DatePicker
+                x:Name="endDatePicker"
+                Grid.Row="2"
+                Grid.Column="1" />
+        </Grid>
+
+        <HorizontalStackLayout
+            HorizontalOptions="End"
+            Spacing="12">
+
+            <!-- Add Button -->
+            <Button
+                Text="Add"
+                Clicked="OnAddTermClicked" 
+                Style="{StaticResource PageAddButtonStyle}"/>
+
+            <!-- Cancel Button -->
+            <Button
+                Text="Cancel"
+                Clicked="OnCancelClicked"
+                Style="{StaticResource PageCancelButtonStyle}" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

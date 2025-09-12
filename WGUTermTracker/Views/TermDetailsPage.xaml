@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUTermTracker.Views.TermDetailsPage"
+             Title="Term Details">
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout
+                Padding="20"
+                Spacing="15">
+
+                <!-- Term Info -->
+                <Label
+                    x:Name="termTitleLabel"
+                    Style="{StaticResource PageHeaderStyle}" />
+
+                <Grid
+                    ColumnDefinitions="Auto, *"
+                    RowDefinitions="Auto, Auto"
+                    Padding="10">
+
+                    <Label 
+                        Text="Start Date:"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        TextColor="#0066A2"
+                        Margin="0, 0, 10, 0"
+                        FontSize="18"/>
+                    <Label 
+                        x:Name="termStartDateLabel"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        FontSize="18" />
+                    <Label 
+                        Text="End Date:"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        TextColor="#0066A2"
+                        FontSize="18"/>
+                    <Label 
+                        x:Name="termEndDateLabel"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="18" />
+                </Grid>
+
+                    <BoxView 
+                    HeightRequest="1"
+                    Color="DodgerBlue"
+                    Margin="0,12" />
+
+                <Label 
+                    Text="Current Courses:"
+                    TextDecorations="Underline"
+                    Style="{StaticResource PageSubHeaderStyle}" />
+
+                <HorizontalStackLayout 
+                    HorizontalOptions="Center"
+                    Spacing="20">
+
+                    <Button 
+                        Text="Add"
+                        Clicked="OnAddCourseButtonClicked" 
+                        Style="{StaticResource PageAddButtonStyle}"/>
+                    <Button 
+                        Text="View"
+                        Clicked="OnViewCourseButtonClicked" 
+                        Style="{StaticResource PageViewButtonStyle}"/>
+                    <Button 
+                        Text="Update"
+                        Clicked="OnUpdateCourseButtonClicked"
+                        Style="{StaticResource PageUpdateButtonStyle}"/>
+                    <Button 
+                        Text="Delete"
+                        Clicked="OnDeleteCourseButtonClicked"
+                        Style="{StaticResource PageDeleteButtonStyle}"/>
+                </HorizontalStackLayout>
+
+                <!-- Course Start Date Report Button -->
+                <HorizontalStackLayout 
+                    HorizontalOptions="Center" 
+                    Spacing="20">
+                    
+                    <Button 
+                        Text="Start Date Report"
+                        Clicked="OnCourseStartDateReportButtonClicked"
+                        Style="{StaticResource PageViewButtonStyle}" />
+                </HorizontalStackLayout>
+
+                <!-- Courses List -->
+                <CollectionView
+                    x:Name="coursesCollectionView"
+                    ItemsSource="{Binding Courses}"
+                    SelectionMode="Single"
+                    SelectionChanged="OnCourseSelected">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout>
+                                <Grid
+                                    Padding="12"
+                                    Margin="0,4"
+                                    ColumnDefinitions="*,Auto,Auto"
+                                    RowDefinitions="Auto">
+
+                                    <Label
+                                        Text="{Binding Title}"
+                                        FontSize="14"
+                                        VerticalOptions="Center"
+                                        Style="{StaticResource PropertyLabelStyle}"
+                                        Grid.Column="0" />
+                                    <Label
+                                        Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}"
+                                        FontSize="12"
+                                        VerticalOptions="Center"
+                                        Grid.Column="1"
+                                        Margin="12,0" />
+                                    <Label
+                                        Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}"
+                                        FontSize="12"
+                                        VerticalOptions="Center"
+                                        Grid.Column="2"
+                                        Margin="12,0" />
+                                </Grid>
+
+                                <BoxView
+                                    HeightRequest="1"
+                                    Color="DodgerBlue"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="300" />
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Button
+            Text="Cancel"
+            Style="{StaticResource PageCancelButtonStyle}"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="20"
+            Clicked="OnCancelButtonClicked"/>
+    </Grid>
+</ContentPage>

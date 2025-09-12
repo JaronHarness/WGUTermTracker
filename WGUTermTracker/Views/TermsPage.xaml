@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:services="clr-namespace:WGUTermTracker.Services;assembly=WGUTermTracker"
+             x:Class="WGUTermTracker.Views.TermsPage">
+
+    <VerticalStackLayout
+        Padding="20"
+        Spacing="15">
+
+        <!-- Main Header Section -->
+        <Label 
+            Text="Term Tracker"
+            Style="{StaticResource PageHeaderStyle}" />
+        
+        <!-- Sub-header & Add Term Button -->
+        <HorizontalStackLayout
+            HorizontalOptions="Center"
+            Spacing="20" 
+            Margin="0, 30, 0, 0">
+
+            <Button 
+                Text="Add"
+                Clicked="OnAddTermClicked" 
+                Style="{StaticResource PageAddButtonStyle}"/>
+            <Button 
+                Text="View"
+                Clicked="OnViewTermClicked" 
+                Style="{StaticResource PageViewButtonStyle}"/>
+            <Button 
+                Text="Update"
+                Clicked="OnUpdateTermClicked" 
+                Style="{StaticResource PageUpdateButtonStyle}"/>
+            <Button
+                x:Name="deleteButton"
+                Text="Delete"
+                Clicked="OnDeleteTermClicked" 
+                Style="{StaticResource PageDeleteButtonStyle}"/>
+        </HorizontalStackLayout>
+
+        <Label 
+            Text="Current Terms: "
+            Style="{StaticResource PageSubHeaderStyle}" />
+        <!-- Current Terms -->
+        <CollectionView
+            x:Name="termsCollectionView"
+            ItemsSource="{Binding Terms}"
+            SelectionMode="Single"
+            SelectionChanged="OnTermSelected">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Grid
+                            Padding="12"
+                            Margin="0,6"
+                            ColumnDefinitions="*,Auto,Auto"
+                            RowDefinitions="Auto">
+
+                            <Label
+                                Text="{Binding Title}"
+                                FontSize="14"
+                                VerticalOptions="Center"
+                                Grid.Column="0"
+                                Style="{StaticResource PropertyLabelStyle}"/>
+
+                            <Label
+                                Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}"
+                                FontSize="12"
+                                VerticalOptions="Center"
+                                Grid.Column="1"
+                                Margin="12,0" />
+
+                            <Label
+                                Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}"
+                                FontSize="12"
+                                VerticalOptions="Center"
+                                Grid.Column="2"
+                                Margin="12,0" />
+                        </Grid>
+
+                        <BoxView
+                            HeightRequest="1"
+                            Color="DodgerBlue"
+                            HorizontalOptions="Center"
+                            WidthRequest="300" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

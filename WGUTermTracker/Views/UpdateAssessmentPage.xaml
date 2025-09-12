@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUTermTracker.Views.UpdateAssessmentPage"
+             Title="Update Assessment">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="16" 
+            Spacing="16">
+
+            <!-- Page Header -->
+            <Label 
+                Text="Update Assessment"
+                Style="{StaticResource PageHeaderStyle}"/>
+
+            <Grid 
+                ColumnDefinitions="Auto, *" 
+                RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" 
+                Padding="10">
+                <!-- Title -->
+                <Label 
+                    Text="Title: "
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}"/>
+                <Entry 
+                    x:Name="enteredAssessmentTitle"
+                    Text="{Binding Title, Mode=TwoWay}"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Placeholder="Enter Assessment title"/>
+                <!-- Course -->
+                <Label 
+                    Text="Course: "
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}"/>
+                <Picker 
+                    x:Name="coursePicker"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Title="-- Select Course Here --"
+                    ItemDisplayBinding="{Binding Title}" />
+                <!-- Type -->
+                <Label
+                    Text="Type: "
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}"/>
+                <Picker 
+                    x:Name="assessmentTypePicker"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Title="Select Assessment Type"/>
+                <!-- Start Date -->
+                <Label
+                    Text="Start Date: "
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}"/>
+                <DatePicker
+                    x:Name="assessmentStartDatePicker"
+                    Date="{Binding StartDate, Mode=TwoWay}"
+                    Grid.Row="3"
+                    Grid.Column="1" />
+                <!-- End Date -->
+                <Label
+                    Text="End Date: "
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}"/>
+                <DatePicker
+                    x:Name="assessmentEndDatePicker"
+                    Date="{Binding EndDate, Mode=TwoWay}"
+                    Grid.Row="4"
+                    Grid.Column="1" />
+                <!-- Notifications -->
+                <Label
+                    Text="Notifications:"
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}"/>
+                <CheckBox 
+                    x:Name="notificationsCheckBox"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    IsChecked="false"
+                    HorizontalOptions="Start" />
+            </Grid>
+
+            <HorizontalStackLayout
+                HorizontalOptions="End"
+                Spacing="12">
+
+                <!-- Add Button -->
+                <Button
+                    Text="Update"
+                    Clicked="OnUpdateAssessmentClicked" 
+                    Style="{StaticResource PageUpdateButtonStyle}"/>
+
+                <!-- Cancel Button -->
+                <Button
+                    Text="Cancel"
+                    Clicked="OnCancelClicked"
+                    Style="{StaticResource PageCancelButtonStyle}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

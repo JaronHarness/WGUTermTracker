@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUTermTracker.Views.AddCoursePage"
+             Title="Add Course">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="16" 
+            Spacing="16">
+        
+            <!-- Page Header -->
+            <Label 
+                Text="Add Course"
+                Style="{StaticResource PageHeaderStyle}"/>
+
+            <Grid 
+                ColumnDefinitions="Auto,*" 
+                RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" 
+                Padding="10">
+                <!-- Title -->
+                <Label 
+                    Text="Title: "
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource PropertyLabelStyle}"/>
+                <Entry 
+                    x:Name="enteredCourseTitle"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Placeholder="Enter Course title"/>
+                <!-- Term -->
+                <Label 
+                    Text="Term: "
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}" />
+                <Picker 
+                    x:Name="termPicker"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Title="-- Select Term Here --"
+                    ItemDisplayBinding="{Binding Title}" />
+                <!-- Status -->
+                <Label
+                    Text="Status: "
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}" />
+                <Picker 
+                    x:Name="statusPicker"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Title="Select Course Status"/>
+                <!-- Start Date -->
+                <Label
+                    Text="Start Date: "
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}" />
+                <DatePicker
+                    x:Name="courseStartDatePicker"
+                    Grid.Row="3"
+                    Grid.Column="1" />
+                <!-- End Date -->
+                <Label
+                    Text="End Date: "
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}" />
+                <DatePicker
+                    x:Name="courseEndDatePicker"
+                    Grid.Row="4"
+                    Grid.Column="1" />
+                <!-- Notes -->
+                <Label
+                    Text="Notes:"
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}" />
+                <Editor 
+                    x:Name="enteredCourseNotes"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Placeholder="Enter notes here..."
+                    MaxLength="250"
+                    AutoSize="TextChanges"
+                    HeightRequest="60" />
+                <!-- Notifications -->
+                <Label
+                    Text="Notifications:"
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}" />
+                <CheckBox 
+                    x:Name="notificationsCheckBox"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    IsChecked="false"
+                    HorizontalOptions="Start" />
+            </Grid>
+
+            <Label 
+                Text="Instructor Information: "
+                HorizontalOptions="Center"
+                Style="{StaticResource PageSubHeaderStyle}"/>
+
+            <Grid 
+                ColumnDefinitions="Auto, *" 
+                RowDefinitions="Auto,Auto,Auto" 
+                Padding="10">
+
+                <!-- Instructor Info -->
+                <Label
+                    Text="Name: "
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}" />
+                <Entry 
+                    x:Name="enteredInstructorName"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Placeholder="Enter Instructor's Name"
+                    ReturnType="Next" />
+                <Label
+                    Text="Phone: "
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}" />
+                <Entry 
+                    x:Name="enteredInstructorPhone"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Placeholder="Enter Instructor's Phone Number"
+                    Keyboard="Telephone"
+                    MaxLength="15"
+                    ReturnType="Next" />
+                <Label
+                    Text="Email: "
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Style="{StaticResource PropertyLabelStyle}" />
+                <Entry 
+                    x:Name="enteredInstructorEmail"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Placeholder="Enter Instructor's Email:"
+                    Keyboard="Email"
+                    ReturnType="Done" />
+            </Grid>
+
+            <HorizontalStackLayout
+                HorizontalOptions="End"
+                Spacing="12">
+
+                <!-- Add Button -->
+                <Button
+                    Text="Add"
+                    Clicked="OnAddCourseClicked" 
+                    Style="{StaticResource PageAddButtonStyle}"/>
+
+                <!-- Cancel Button -->
+                <Button
+                    Text="Cancel"
+                    Clicked="OnCancelClicked"
+                    Style="{StaticResource PageCancelButtonStyle}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>        
+</ContentPage>

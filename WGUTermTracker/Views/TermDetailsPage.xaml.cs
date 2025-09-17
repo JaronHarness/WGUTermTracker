@@ -18,8 +18,8 @@ public partial class TermDetailsPage : ContentPage
 
         // Display Term Details
         termTitleLabel.Text = $"{_term.Title}";
-        termStartDateLabel.Text = $"Start Date: {_term.StartDate.ToString("d")}";
-        termEndDateLabel.Text = $"End Date: {_term.EndDate.ToString("d")}";
+        termStartDateLabel.Text = $" {_term.StartDate.ToString("d")}";
+        termEndDateLabel.Text = $" {_term.EndDate.ToString("d")}";
     }
 
     protected override async void OnAppearing()
